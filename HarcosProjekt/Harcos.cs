@@ -52,6 +52,48 @@ namespace HarcosProjekt
 
         }
 
+        public void Megkuzd(Harcos MasikHarcos)
+        {
+            if (this.nev==MasikHarcos.nev)
+            {
+                Console.WriteLine("UGYANAZ A NEVE");
+            }else if (MasikHarcos.eletero == 0)
+            {
+                Console.WriteLine("MEGHALT"+MasikHarcos.nev);
+            }
+            else
+            {
+                Console.WriteLine("TÁMADÁS");
+                if (this.eletero>0)
+                {
+                    MasikHarcos.eletero -= this.AlapSebzes;
+                    MasikHarcos.tapasztalat += 5;
+                    Console.WriteLine(MasikHarcos.nev + " Életereje: " + MasikHarcos.eletero+"tapasztalata:" + this.tapasztalat);
+                    
+                }
+                
+                if (MasikHarcos.eletero>0)
+                {
+                    this.eletero -= MasikHarcos.Sebzes;
+
+                    this.tapasztalat += 5;
+                    Console.WriteLine(this.nev + " Életereje: " + this.eletero+ "tapasztalata:" + this.tapasztalat);
+                }
+                if (MasikHarcos.eletero == 0)
+                {
+                    this.tapasztalat += 10;
+                    Console.WriteLine("Megölte"+MasikHarcos.nev+"-t tapasztalata:"+this.tapasztalat);
+                    
+                }
+                if (this.eletero==0)
+                {
+                    MasikHarcos.tapasztalat += 10;
+                    Console.WriteLine("Megölte" + this.nev + "-t tapasztalata:"+MasikHarcos.tapasztalat);
+                    
+                }
+            }
+        }
+
 
         public string Nev { get => nev; set => nev = value; }
         public int Szint { get => szint; set => szint = value; }

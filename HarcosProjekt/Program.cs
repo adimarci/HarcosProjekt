@@ -12,6 +12,8 @@ namespace HarcosProjekt
         {
             Harcos Jani = new Harcos("Jani",1);
             Console.WriteLine(Jani);
+            Harcos MasikHarcos = new Harcos("Pokak",2);
+            Jani.Megkuzd(MasikHarcos);
             Console.ReadKey();
         }
     }
