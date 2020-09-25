@@ -10,7 +10,9 @@ namespace HarcosProjekt
     {
         static void Main(string[] args)
         {
-
+            Harcos Jani = new Harcos("Jani",1);
+            Console.WriteLine(Jani);
+            Console.ReadKey();
         }
     }
 }

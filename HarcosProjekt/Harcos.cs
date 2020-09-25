@@ -27,9 +27,10 @@ namespace HarcosProjekt
 
         public Harcos(string nev, int statuszSablon)
         {
-            nev = this.Nev;
+            this.Nev=nev;
             this.szint = 1;
             this.tapasztalat = 0;
+            alapEletero = MaxEletero;
             if (statuszSablon == 1)
             {
                 alapEletero = 15;
@@ -44,10 +45,10 @@ namespace HarcosProjekt
                 alapEletero = 8;
                 alapSebzes = 5;
             }
-            else
-            {
-                alapEletero = MaxEletero;
-            }
+
+            this.eletero = MaxEletero;
+            
+
 
         }
 
@@ -66,7 +67,7 @@ namespace HarcosProjekt
 
         public override string ToString()
         {
-            return string.Format("");
+            return string.Format("{0} – LVL: {1} – EXP: {2} /{3} – HP:{4} /{5} – DMG: {6}",nev,szint,tapasztalat,SzintLepeshez,eletero,MaxEletero,Sebzes);
         }
     
     
