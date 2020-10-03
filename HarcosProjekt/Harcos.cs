@@ -27,7 +27,7 @@ namespace HarcosProjekt
 
         public Harcos(string nev, int statuszSablon)
         {
-            this.Nev=nev;
+            this.Nev = nev;
             this.szint = 1;
             this.tapasztalat = 0;
             alapEletero = MaxEletero;
@@ -36,61 +36,75 @@ namespace HarcosProjekt
                 alapEletero = 15;
                 alapSebzes = 3;
 
-            }else if (statuszSablon == 2)
+            } else if (statuszSablon == 2)
             {
                 alapEletero = 12;
                 alapSebzes = 4;
-            }else if (statuszSablon==3)
+            } else if (statuszSablon == 3)
             {
                 alapEletero = 8;
                 alapSebzes = 5;
             }
 
             this.eletero = MaxEletero;
-            
+
 
 
         }
 
         public void Megkuzd(Harcos MasikHarcos)
         {
-            if (this.nev==MasikHarcos.nev)
+            if (this.nev == MasikHarcos.nev)
             {
                 Console.WriteLine("UGYANAZ A NEVE");
-            }else if (MasikHarcos.eletero == 0)
+            } else if (MasikHarcos.eletero == 0)
             {
-                Console.WriteLine("MEGHALT"+MasikHarcos.nev);
+                Console.WriteLine("MEGHALT" + MasikHarcos.nev);
             }
             else
             {
                 Console.WriteLine("TÁMADÁS");
-                if (this.eletero>0)
+                if (this.eletero > 0)
                 {
                     MasikHarcos.eletero -= this.AlapSebzes;
                     MasikHarcos.tapasztalat += 5;
-                    Console.WriteLine(MasikHarcos.nev + " Életereje: " + MasikHarcos.eletero+"tapasztalata:" + this.tapasztalat);
-                    
+                    Console.WriteLine(MasikHarcos.nev + " Életereje: " + MasikHarcos.eletero + "tapasztalata:" + this.tapasztalat);
+
                 }
-                
-                if (MasikHarcos.eletero>0)
+
+                if (MasikHarcos.eletero > 0)
                 {
                     this.eletero -= MasikHarcos.Sebzes;
 
                     this.tapasztalat += 5;
-                    Console.WriteLine(this.nev + " Életereje: " + this.eletero+ "tapasztalata:" + this.tapasztalat);
+                    Console.WriteLine(this.nev + " Életereje: " + this.eletero + "tapasztalata:" + this.tapasztalat);
                 }
                 if (MasikHarcos.eletero == 0)
                 {
                     this.tapasztalat += 10;
-                    Console.WriteLine("Megölte"+MasikHarcos.nev+"-t tapasztalata:"+this.tapasztalat);
-                    
+                    Console.WriteLine("Megölte" + MasikHarcos.nev + "-t tapasztalata:" + this.tapasztalat);
+
                 }
-                if (this.eletero==0)
+                if (this.eletero == 0)
                 {
                     MasikHarcos.tapasztalat += 10;
-                    Console.WriteLine("Megölte" + this.nev + "-t tapasztalata:"+MasikHarcos.tapasztalat);
-                    
+                    Console.WriteLine("Megölte" + this.nev + "-t tapasztalata:" + MasikHarcos.tapasztalat);
+
                 }
+            }
+        }
+
+        public void Gyogyul(Harcos gyogyulas)
+        {
+            if (this.eletero==0)
+            {
+                this.eletero = MaxEletero;
+                Console.WriteLine("Életerő visszatöltve"+this.eletero);
+            }
+            else
+            {
+                this.eletero += 3;
+                Console.WriteLine("Gyógyult"+this.eletero);
             }
         }
 
@@ -98,7 +112,8 @@ namespace HarcosProjekt
         public string Nev { get => nev; set => nev = value; }
         public int Szint { get => szint; set => szint = value; }
         public int Tapasztalat { get => tapasztalat; set => tapasztalat = value; }
-        public int Eletero { get => eletero; set => eletero = value; }
+        public int Eletero { get => eletero; set =>  eletero =  value; }
+        
         public int AlapEletero { get => alapEletero;}
         public int AlapSebzes { get => alapSebzes;}
         public int Sebzes { get => alapSebzes + szint; }

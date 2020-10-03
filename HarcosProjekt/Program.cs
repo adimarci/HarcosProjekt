@@ -14,6 +14,8 @@ namespace HarcosProjekt
             Console.WriteLine(Jani);
             Harcos MasikHarcos = new Harcos("Pokak",2);
             Jani.Megkuzd(MasikHarcos);
+            Jani.Gyogyul(Jani);
+            
             Console.ReadKey();
         }
     }
