@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,16 +35,16 @@ namespace HarcosProjekt
             
             if (statuszSablon == 1)
             {
-                alapEletero = 15;
+                alapEletero = 12;
                 alapSebzes = 3;
 
             } else if (statuszSablon == 2)
             {
-                alapEletero = 12;
+                alapEletero = 9;
                 alapSebzes = 4;
             } else if (statuszSablon == 3)
             {
-                alapEletero = 8;
+                alapEletero = 5;
                 alapSebzes = 5;
             }
 
@@ -95,17 +96,23 @@ namespace HarcosProjekt
             }
         }
 
-        public void Gyogyul(Harcos gyogyulas)
+        public void Gyogyul()
         {
-            if (this.eletero==0)
+            
+            if (eletero==0)
             {
-                this.eletero = MaxEletero;
-                Console.WriteLine("Életerő visszatöltve"+this.eletero);
+                eletero = MaxEletero;
+                Console.WriteLine("Életerő visszatöltve,jelenlegi életerő: "+eletero);
+            }
+            else if(eletero>=MaxEletero)
+            {
+                Console.WriteLine("Maximum életerőn van");
+                eletero = MaxEletero;
             }
             else
             {
-                this.eletero += 3;
-                Console.WriteLine("Gyógyult"+this.eletero);
+                eletero += 3;
+                Console.WriteLine("Gyógyult,jelenlegi életerő: " + eletero);
             }
         }
 
