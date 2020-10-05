@@ -31,6 +31,7 @@ namespace HarcosProjekt
             this.szint = 1;
             this.tapasztalat = 0;
             alapEletero = MaxEletero;
+            
             if (statuszSablon == 1)
             {
                 alapEletero = 15;
@@ -110,9 +111,57 @@ namespace HarcosProjekt
 
 
         public string Nev { get => nev; set => nev = value; }
-        public int Szint { get => szint; set => szint = value; }
-        public int Tapasztalat { get => tapasztalat; set => tapasztalat = value; }
-        public int Eletero { get => eletero; set =>  eletero =  value; }
+
+
+        public int Szint
+        {
+            get => szint; set
+            {
+                if (value == szint + 1 && tapasztalat >= SzintLepeshez)
+                {
+                    tapasztalat -= SzintLepeshez;
+                    szint++;
+                    eletero = MaxEletero;
+                }
+            }
+        }
+        public int Tapasztalat
+        {
+            get => tapasztalat;
+            set
+            {
+                tapasztalat = value;
+
+                if (tapasztalat>=SzintLepeshez)
+                {
+                    szint++;
+                }
+
+            }
+        }
+
+        public int Eletero
+        {
+            get
+            {
+                return eletero;
+            }
+            set
+            {
+                if (eletero!=0)
+                {
+                    eletero = value;
+                }else if (eletero > MaxEletero)
+                {
+                    eletero = MaxEletero;
+                }
+                else
+                {
+                    eletero = value;
+                    tapasztalat = 0;
+                }
+            }
+        }
         
         public int AlapEletero { get => alapEletero;}
         public int AlapSebzes { get => alapSebzes;}
