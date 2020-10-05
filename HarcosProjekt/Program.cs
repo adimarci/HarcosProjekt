@@ -81,7 +81,13 @@ namespace HarcosProjekt
                     Console.WriteLine("Válasszon műveletet: \n \t a) Megküzdeni" + "\n \t b) Gyógyulni \n \t c)Kilépni");
                     menupontok = Convert.ToString(Console.ReadLine());
                 }
-               
+                else if (menupontok == "b")
+                {
+                    harcos1.Gyogyul();
+
+                    Console.WriteLine("Válasszon műveletet: \n \t a) Megküzdeni" + "\n \t b) Gyógyulni \n \t c)Kilépni");
+                    menupontok = Convert.ToString(Console.ReadLine());
+                }
 
 
             } while (menupontok != "c");
