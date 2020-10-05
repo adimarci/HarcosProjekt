@@ -51,7 +51,8 @@ namespace HarcosProjekt
 
             string menupontok;
             Random rnd = new Random();
-
+            
+            int korszam = 0;
             Console.WriteLine("Válasszon műveletet: \n \t a) Megküzdeni" + "\n \t b) Gyógyulni \n \t c)Kilépni");
             menupontok = Convert.ToString(Console.ReadLine());
             do
@@ -62,9 +63,17 @@ namespace HarcosProjekt
                     Console.WriteLine("Nem jó menüpontot adott meg kérem adja meg újra:");
                     menupontok = Convert.ToString(Console.ReadLine());
                 }
-
+                
+                korszam++;
+                if (korszam%3==0)
+                {
+                    harcosLista[rnd.Next(harcosLista.Count)].Megkuzd(harcos1);
+                }
+                Console.WriteLine(korszam);
                 if (menupontok=="a")
                 {
+                    
+
                     Console.WriteLine("Hanyadik harcossal szeretne megküzdeni");
                     sorszam = 0;
                     foreach (Harcos f in harcosLista)
